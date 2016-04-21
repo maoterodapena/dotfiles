@@ -167,6 +167,13 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
 NeoBundle 'Shougo/unite.vim'        " La madre de todos los plugins
+NeoBundle 'rstacruz/vim-fastunite'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'tsukkee/unite-tag'
+
+
+
 NeoBundle 'Shougo/vimfiler.vim'     " Un explorador de archivos
 NeoBundle 'joedicastro/vim-molokai256'  " Mi esquema de color
 

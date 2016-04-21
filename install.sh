@@ -20,3 +20,5 @@ function dotfile {
 
 dotfile "$THISDIR/vimrc" "$HOME/.vimrc"
 dotfile "$THISDIR/bashrc" "$HOME/.bashrc"
+which xbindkeys > /dev/null || echo "Ojo: xbindkeys no instalado"
+dotfile "$THISDIR/xbindkeys" "$HOME/.xbindkeys"
