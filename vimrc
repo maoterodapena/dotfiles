@@ -25,6 +25,7 @@ set lazyredraw                  " Redibuja solo cuando es necesario.
 set autoread                    " Actualiza cambios realizados fuera de vim.
 set ttimeoutlen=0               " Conmuta instantaneamente entre modos
 set backspace=indent,eol,start  " Definir el comportamiento de tecla Backspace
+set term=screen-256color        " Evitar problema del color de fondo en tmux
 
 set noswapfile              " Control con git o lo que sea
 
