@@ -24,5 +24,5 @@ dotfile "$THISDIR/tmux.conf" "$HOME/.tmux.conf"
 which xbindkeys > /dev/null || echo "Ojo: xbindkeys no instalado"
 dotfile "$THISDIR/xbindkeysrc" "$HOME/.xbindkeysrc"
 dotfile "$THISDIR/bin/move2tile.sh" "$HOME/bin/move2tile.sh"
-dotfile "$THISDIR/bin/teclado" "$HOME/bin/teclado.sh"
+dotfile "$THISDIR/bin/teclado.sh" "$HOME/bin/teclado.sh"
 

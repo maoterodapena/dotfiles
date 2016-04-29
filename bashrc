@@ -214,9 +214,12 @@ function michi_prompt {
   if [[ "$SSH_CONNECTION" ]]; then
       local sshc="$YELLOW\u@\h$NOCOLOR "
   fi
+  if [[ "$VIRTUAL_ENV" ]]; then
+      local ve="$YELLOW "`basename $VIRTUAL_ENV`" $NOCOLOR"
+  fi
   
   #__git_ps1 "$res$sshc $LCYAN\w$NOCOLOR" " " " $LCYAN[%s$LCYAN]$NOCOLOR"
-  __git_ps1 "$sshc$LCYAN\w$NOCOLOR $res" " " " $LCYAN[%s$LCYAN]$NOCOLOR"
+  __git_ps1 "$sshc$LCYAN\w$NOCOLOR$ve$res" " " " $LCYAN[%s$LCYAN]$NOCOLOR"
   }
 PROMPT_COMMAND='michi_prompt'
 

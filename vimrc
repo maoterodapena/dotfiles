@@ -172,6 +172,7 @@ NeoBundle 'Shougo/unite.vim'        " La madre de todos los plugins
 NeoBundle 'Shougo/vimfiler.vim'     " Un explorador de archivos
 NeoBundle 'joedicastro/vim-molokai256'  " Mi esquema de color
 
+NeoBundle 'vimwiki/vimwiki'      " Mi wikipedia personal
 
 
 call neobundle#end()
@@ -352,6 +353,20 @@ else
     colorscheme molokai256
 endif
 
+" -------------------------------------------------------
+" vimwiki
+" -------------------------------------------------------
+let g:vimwiki_list = [{'path': '~/Dropbox/Aplicaciones/Minutes/',
+                     \ 'path_html':'/tmp/wikiprueba/html',
+                     \ 'custom_wiki2html':'/home/michi/.vim/bundle/vimwiki/autoload/vimwiki/customwiki2html.sh',
+                     \ 'syntax':'markdown','ext':'.txt'
+                     \},
+                     \{'path': '/tmp/wikiprueba', 
+                     \ 'syntax':'markdown','ext':'.txt'
+                     \}
+                     \]
+nmap t <Plug>VimwikiToggleListItem
+nmap <leader>w- <Plug>VimwikiRemoveHeaderLevel
 " -------------------------------------------------------
 " Mis mappings
 " -------------------------------------------------------

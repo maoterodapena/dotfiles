@@ -42,7 +42,7 @@
 #"xbindkeys_show" 
 #  control+shift + q
 
-"teclado"
+"teclado.sh"
   control+shift + t
 
 "move2tile.sh 7"
