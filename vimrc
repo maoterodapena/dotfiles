@@ -171,8 +171,15 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'Shougo/unite.vim'        " La madre de todos los plugins
 NeoBundle 'Shougo/vimfiler.vim'     " Un explorador de archivos
 NeoBundle 'joedicastro/vim-molokai256'  " Mi esquema de color
+NeoBundle 'mileszs/ack.vim'         " Ack plugin para busquedas
 
 NeoBundle 'vimwiki/vimwiki'      " Mi wikipedia personal
+
+NeoBundle 'christoomey/vim-tmux-navigator'
+
+
+
+
 
 
 call neobundle#end()
@@ -367,6 +374,23 @@ let g:vimwiki_list = [{'path': '~/Dropbox/Aplicaciones/Minutes/',
                      \]
 nmap t <Plug>VimwikiToggleListItem
 nmap <leader>w- <Plug>VimwikiRemoveHeaderLevel
+
+" -------------------------------------------------------
+" Ack
+" -------------------------------------------------------
+"  Sobreescribo varios, porque el plugin extiende
+let g:ack_mappings = {
+      \ "t": "",
+      \ "T": "",
+      \ "o": "<CR>",
+      \ "O": "",
+      \ "l": "<CR><C-W>p",
+      \ "g": "<CR><C-W>p",
+      \ "h": "",
+      \ "H": "",
+      \ "v": "",
+      \ "gv": "" }
+
 " -------------------------------------------------------
 " Mis mappings
 " -------------------------------------------------------
