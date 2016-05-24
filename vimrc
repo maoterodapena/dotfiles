@@ -172,15 +172,10 @@ NeoBundle 'Shougo/unite.vim'        " La madre de todos los plugins
 NeoBundle 'Shougo/vimfiler.vim'     " Un explorador de archivos
 NeoBundle 'joedicastro/vim-molokai256'  " Mi esquema de color
 NeoBundle 'mileszs/ack.vim'         " Ack plugin para busquedas
-
 NeoBundle 'vimwiki/vimwiki'      " Mi wikipedia personal
-
+NeoBundle 'leafgarland/typescript-vim'  " Syntax file for TypeScript
 NeoBundle 'christoomey/vim-tmux-navigator'
-
-
-
-
-
+NeoBundle 'mattn/emmet-vim'         " html expander
 
 call neobundle#end()
 
@@ -390,8 +385,15 @@ let g:ack_mappings = {
       \ "H": "",
       \ "v": "",
       \ "gv": "" }
+" -------------------------------------------------------
+" Emmet
+" -------------------------------------------------------
+" solo para html y css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " -------------------------------------------------------
 " Mis mappings
 " -------------------------------------------------------
 set pastetoggle=<F3>
+nmap Q <nop>
