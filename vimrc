@@ -170,6 +170,15 @@ NeoBundle 'vim-airline/vim-airline-themes'
 
 NeoBundle 'Shougo/unite.vim'        " La madre de todos los plugins
 NeoBundle 'Shougo/vimfiler.vim'     " Un explorador de archivos
+NeoBundle 'Shougo/vimproc.vim', {
+            \ 'build' : {
+            \     'windows' : 'tools\\update-dll-mingw',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make',
+            \     'linux' : 'make',
+            \     'unix' : 'gmake',
+            \    },
+            \ }
 NeoBundle 'joedicastro/vim-molokai256'  " Mi esquema de color
 NeoBundle 'mileszs/ack.vim'         " Ack plugin para busquedas
 NeoBundle 'vimwiki/vimwiki'      " Mi wikipedia personal
@@ -397,3 +406,8 @@ autocmd FileType html,css EmmetInstall
 " -------------------------------------------------------
 set pastetoggle=<F3>
 nmap Q <nop>
+
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <space>/ :Unite grep:. -auto-preview<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+

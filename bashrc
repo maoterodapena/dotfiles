@@ -226,3 +226,5 @@ PROMPT_COMMAND='michi_prompt'
 # mis alias
 alias busca='find . -type f -print0 | xargs -0 grep '
 # END michi-tweaks
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
