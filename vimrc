@@ -186,6 +186,8 @@ NeoBundle 'leafgarland/typescript-vim'  " Syntax file for TypeScript
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'mattn/emmet-vim'         " html expander
 
+NeoBundle 'scrooloose/syntastic'     " Checkea sintaxis
+
 call neobundle#end()
 
 " Required:
@@ -399,15 +401,29 @@ let g:ack_mappings = {
 " -------------------------------------------------------
 " solo para html y css
 let g:user_emmet_install_global = 0
+autocmd BufRead,BufNewFile *.blade.php set filetype=html
 autocmd FileType html,css EmmetInstall
 
+" -------------------------------------------------------
+" Syntastic
+" -------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " -------------------------------------------------------
 " Mis mappings
 " -------------------------------------------------------
 set pastetoggle=<F3>
 nmap Q <nop>
 
-nnoremap <C-p> :Unite file_rec/async<cr>
+let g:unite_enable_start_insert = 1
+nnoremap <C-p> :Unite file_rec/async -start-insert<cr>
 nnoremap <space>/ :Unite grep:. -auto-preview<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
+" nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <space>b :Unite -start-insert buffer<cr>
 
