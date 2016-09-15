@@ -188,6 +188,8 @@ NeoBundle 'mattn/emmet-vim'         " html expander
 
 NeoBundle 'scrooloose/syntastic'     " Checkea sintaxis
 
+NeoBundle 'kien/ctrlp.vim'
+
 call neobundle#end()
 
 " Required:
@@ -350,7 +352,7 @@ function! s:cd_buffer_dir() "{{{
     cd `=dir`
 endfunction"}}}
 
-nnoremap <leader>e :<C-U>VimFilerExplorer -buffer-name=explorer<CR>
+nnoremap <leader>e :<C-U>VimFilerExplorer -buffer-name=explorer -find<CR>
 autocmd filetype explorer :nnoremap <buffer>- /
 "nnoremap - /
 
@@ -422,8 +424,18 @@ set pastetoggle=<F3>
 nmap Q <nop>
 
 let g:unite_enable_start_insert = 1
-nnoremap <C-p> :Unite file_rec/async -start-insert<cr>
+"nnoremap <C-p> :Unite file_rec/async -start-insert<cr>
 nnoremap <space>/ :Unite grep:. -auto-preview<cr>
 " nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>b :Unite -start-insert buffer<cr>
+
+
+" Mappings ctrlp
+nnoremap <space>l :CtrlPLine<CR>
+nnoremap <space>t :CtrlPTag<CR>
+nnoremap <space>m :CtrlPMRU<CR>
+nnoremap <space>b :CtrlPBuffer<CR>
+nnoremap <space>p :CtrlPMixed<CR>
+let g:ctrlp_working_path_mode = 'w'
+
 
