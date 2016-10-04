@@ -438,4 +438,6 @@ nnoremap <space>b :CtrlPBuffer<CR>
 nnoremap <space>p :CtrlPMixed<CR>
 let g:ctrlp_working_path_mode = 'w'
 
-
+" Portapapeles compartido en modo visual
+vnoremap y y:w! /tmp/_vim_clipboard<CR>
+vmap p :r /tmp/_vim_clipboard<CR>
