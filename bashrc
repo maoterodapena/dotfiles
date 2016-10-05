@@ -228,3 +228,7 @@ alias busca='find . -type f -print0 | xargs -0 grep '
 # END michi-tweaks
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# virtualenvs para python
+export WORKON_HOME=~/.virtualenvs
+. /usr/local/bin/virtualenvwrapper.sh
