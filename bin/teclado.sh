@@ -11,10 +11,10 @@ ps -ef | grep "xcape -e Control_L Escape" | grep -v "grep" > /dev/null
 if [ $? -eq 1 ]; then
     xcape -e 'Control_L=Escape'
 else
-    echo "xcape ya estaba residente"
+    # echo "xcape ya estaba residente"
     killall -9 xcape
     xcape -e 'Control_L=Escape'
 fi
 sleep 1
-killall -9 apport-gtk 2>/dev/null
+killall -q -9 apport-gtk 2>/dev/null
 
