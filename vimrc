@@ -187,6 +187,8 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'mattn/emmet-vim'         " html expander
 
 NeoBundle 'scrooloose/syntastic'     " Checkea sintaxis
+NeoBundle 'klen/python-mode'
+"NeoBundle 'alfredodeza/khuno.vim'
 
 NeoBundle 'kien/ctrlp.vim'
 
@@ -438,4 +440,31 @@ nnoremap <space>b :CtrlPBuffer<CR>
 nnoremap <space>p :CtrlPMixed<CR>
 let g:ctrlp_working_path_mode = 'w'
 
+" Portapapeles compartido en modo visual
+vnoremap y y:w! /tmp/_vim_clipboard<CR>
+vmap p :r /tmp/_vim_clipboard<CR>
 
+" Python settings
+" muy lento: let g:syntastic_quiet_messages = { "level": "warnings" }
+"let g:syntastic_python_pylint_quiet_messages = { "level" : [] }
+let g:syntaxtic_python_checkers = ['']
+let g:syntastic_python_flake8_args = '--ignore=E,W,F403'
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["ruby", "php"],
+    \ "passive_filetypes": ["python"] }
+let g:pymode_run = 0
+nmap (( [[
+nmap )) ]]
+nmap ) ]
+nmap ( [
+let g:pymode_breakpoint_bind = '<leader>B'
+let g:pymode_lint_on_fly = 1
+let g:pymode_lint_error_symbol = '▶ '
+let g:pymode_lint_todo_symbol = '» '
+let g:pymode_lint_comment_symbol = 'CC'
+let g:pymode_lint_visual_symbol = 'RR'
+let g:pymode_lint_info_symbol = 'II'
+let g:pymode_lint_pyflakes_symbol = 'FF'
+
+let g:pymode_rope_complete_on_dot=0

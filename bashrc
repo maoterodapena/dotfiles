@@ -230,4 +230,6 @@ alias vu="tmux rename-window $(basename $(pwd)) && vagrant up"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-
+# virtualenvs para python
+export WORKON_HOME=~/.virtualenvs
+. /usr/local/bin/virtualenvwrapper.sh
