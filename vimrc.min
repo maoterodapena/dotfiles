@@ -1,0 +1,146 @@
+"----------------------------------------------------------
+" Configuraciones basicas
+" ---------------------------------------------------------
+scriptencoding utf-8
+set encoding=utf-8              " Establece la codificación a UTF-8.
+
+set tabstop=4               " Tabulacion a 4
+set softtabstop=4
+set shiftwidth=4
+
+"----------------------------------------------------------
+" Configuracion interface 
+" ---------------------------------------------------------
+"
+set nocompatible            
+
+set visualbell                  " Activa la alarma visual.
+set fillchars=vert:\           " Mejora aspecto de la división de ventanas.
+set ttyfast                     " Mejora el redibujado de la pantalla.
+set title                       " Añade el nombre del archivo al terminal.
+set showcmd                     " Muestra comandos incompletos.
+set hidden                      " Oculta los bufferes cerrados.
+set ruler                       " Establece una regla permanente.
+set lazyredraw                  " Redibuja solo cuando es necesario.
+set autoread                    " Actualiza cambios realizados fuera de vim.
+set ttimeoutlen=0               " Conmuta instantaneamente entre modos
+set backspace=indent,eol,start  " Definir el comportamiento de tecla Backspace
+" Evita problemas de color en tmux (desactiva BCE: Background Color Erase)
+set t_ut= 
+
+
+set noswapfile              " Control con git o lo que sea
+
+set expandtab               " Transforma tabs to espacios
+set number                  " Muestar numeros de linea
+set nocursorline            " No Resalta la linea actual
+set relativenumber          " Para mejorar los saltos con j y k
+
+set wildmenu                " autocompletado visual para comandos
+set wildmode=longest:list,full   " feo, pero mas comodo para mi
+
+set showmatch               " muestra parejas de ([{
+
+set ignorecase              " mejor busqueda
+set smartcase
+
+" mostrar status line
+set laststatus=2
+
+" sin division entre splits
+
+"----------------------------------------------------------------------------
+" Configuracion busquedas
+"----------------------------------------------------------------------------
+set incsearch               " muestra las busquedas segun se teclea
+set hlsearch                " resalta resultados de la busqueda
+nohlsearch
+
+"----------------------------------------------------------------------------
+" Configuracion folding
+" -----------------------------------------------------
+set foldlevelstart=10       " Inicialmente abre carpetas hasta 10 niveles
+set foldmethod=marker       " Setea metodo para las folds 
+map ,f :set foldmethod=indent<cr>zM<cr>
+map ,F :set foldmethod=manual<cr>zr<cr>
+
+"----------------------------------------------------------------------------
+" Configuracion movimiento 
+"----------------------------------------------------------------------------
+" El raton algunas veces esta bien
+set mouse=a
+nmap <RightMouse> :set paste<cr>"+gP:set nopaste<cr>
+
+" Scroll mas rapido
+nnoremap K 5k
+nmap J 5j
+nmap <Leader>J :join<CR>
+
+" Cambio de buffers
+nnoremap L :bnext<cr>
+nnoremap H :bprev<cr>
+
+" Mapeo lider y su timeout para anular
+let mapleader=','
+let maplocalleader= ' '
+set timeoutlen=400
+
+augroup AusNavegacion
+    autocmd!
+    " Navegacion en help con <enter> (C-] no es comodo con teclado espanol
+    autocmd filetype help :nnoremap <buffer><CR> <c-]>
+augroup END
+
+" Mueve al principio linea
+function! MichiGoFirstColum()
+    let pos = getpos(".")
+    :normal ^
+    if pos[2] == getpos(".")[2]
+        let pos[2]=0
+        call setpos(".",pos)
+    endif
+endfunction
+nnoremap <silent> 0 :call MichiGoFirstColum()<CR>
+
+" Mejorar algunas teclas dificiles de pulsar en espanol
+nnoremap ñ :
+nnoremap - /
+
+" Grabar mas facil con ,, y salir con ,.
+noremap <leader><leader> <Esc>:w<Enter>
+noremap <leader>. <Esc>:wall<Enter>:q<Enter>
+imap <leader><leader> <Esc>:w<Enter>
+imap <leader>. <Esc>:wall<Enter>:q<Enter>
+
+ " Cambio rápido entre ventanas {{{
+ nnoremap <C-h> <C-w>h
+ nnoremap <C-j> <C-w>j
+ nnoremap <C-k> <C-w>k
+ nnoremap <C-l> <C-w>l
+
+ " Control-c para cortar en visual
+vmap <c-c> "+y
+
+" Vuelve a leer configuracion cuando cambia vimrc
+augroup MisAutocmd
+    autocmd!
+    autocmd BufWritePost .vimrc source %
+    " !autocmd ....
+augroup END
+
+" Required:
+filetype plugin indent on
+
+"*****************************************************************************
+"" Configuracion de paquetes
+"*****************************************************************************
+" -------------------------------------------------------
+" Mis mappings
+" -------------------------------------------------------
+set pastetoggle=<F3>
+nmap Q <nop>
+
+
+" Portapapeles compartido en modo visual
+vnoremap y y:w! /tmp/_vim_clipboard<CR>
+vmap p :r /tmp/_vim_clipboard<CR>
