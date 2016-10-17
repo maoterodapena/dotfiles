@@ -73,7 +73,7 @@ nmap <RightMouse> :set paste<cr>"+gP:set nopaste<cr>
 
 " Scroll mas rapido
 nnoremap K 5k
-nnoremap J 5j
+nmap J 5j
 nmap <Leader>J :join<CR>
 
 " Cambio de buffers
@@ -466,5 +466,7 @@ let g:pymode_lint_comment_symbol = 'CC'
 let g:pymode_lint_visual_symbol = 'RR'
 let g:pymode_lint_info_symbol = 'II'
 let g:pymode_lint_pyflakes_symbol = 'FF'
+
+let g:pymode_lint_ignore = "E501,E128"
 
 let g:pymode_rope_complete_on_dot=0
