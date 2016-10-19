@@ -104,6 +104,7 @@ nnoremap <silent> 0 :call MichiGoFirstColum()<CR>
 
 " Mejorar algunas teclas dificiles de pulsar en espanol
 nnoremap ñ :
+vnoremap ñ :
 nnoremap - /
 
 " Grabar mas facil con ,, y salir con ,.
@@ -440,9 +441,14 @@ nnoremap <space>b :CtrlPBuffer<CR>
 nnoremap <space>p :CtrlPMixed<CR>
 let g:ctrlp_working_path_mode = 'w'
 
-" Portapapeles compartido en modo visual
-vnoremap y y:w! /tmp/_vim_clipboard<CR>
-vmap p :r /tmp/_vim_clipboard<CR>
+" Portapapeles compartido con X
+if has('unnamedplus')
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
+"vnoremap y y:w! /tmp/_vim_clipboard<CR>
+"vmap p :r /tmp/_vim_clipboard<CR>
 
 " Python settings
 " muy lento: let g:syntastic_quiet_messages = { "level": "warnings" }
