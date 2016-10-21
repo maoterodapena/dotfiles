@@ -114,6 +114,10 @@ imap <leader><leader> <Esc>:w<Enter>
 imap <leader>. <Esc>:wall<Enter>:q<Enter>
 
  " Cambio rápido entre ventanas {{{
+ inoremap <C-h> <Esc><C-w>h
+ inoremap <C-j> <Esc><C-w>j
+ inoremap <C-k> <Esc><C-w>k
+ inoremap <C-l> <Esc><C-w>l
  nnoremap <C-h> <C-w>h
  nnoremap <C-j> <C-w>j
  nnoremap <C-k> <C-w>k
@@ -381,17 +385,18 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
 
 " Snippets {{{
 
-    nnoremap <silent><Leader>ts :Unite -start-insert ultisnips<CR>
+    nnoremap <silent>[menu]ts :Unite -start-insert ultisnips<CR>
+    nnoremap <silent>[menu]te :UltiSnipsEdit<CR>
 
     let g:unite_source_menu_menus.snippets = {
-        \ 'description' : '      snippets and ultisnips functions                      ⌘ [space]s'}
+        \ 'description' : '       snippets and ultisnips functions                      ⌘ [space]t'}
 
     let g:unite_source_menu_menus.snippets.command_candidates = [
-        \['UltiSnipsEdit                                              ', 'UltiSnipsEdit'],
-        \['snippets source                                            ⌘ ,ts', 'Unite -start-insert ultisnips'],
+        \['UltiSnipsEdit                                              ⌘ [space]te', 'UltiSnipsEdit'],
+        \['snippets source                                            ⌘ [space]ts', 'Unite -start-insert ultisnips'],
     \]
  
-    exe 'nnoremap <silent>[menu]t :Unite -silent -winheight='.(len(g:unite_source_menu_menus.snippets.command_candidates) + 2).' menu:snippest<CR>'
+    exe 'nnoremap <silent>[menu]t :Unite -silent -winheight='.(len(g:unite_source_menu_menus.snippets.command_candidates) + 2).' menu:snippets<CR>'
 
 " }}}
 
@@ -503,7 +508,7 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
 " CtrlP {{{
 
     let g:unite_source_menu_menus.ctrlp = {
-        \ 'description' : '            CtrlP shortcuts                                       ⌘ [space]p'}
+        \ 'description' : '          CtrlP shortcuts                                       ⌘ [space]p'}
 
     let g:unite_source_menu_menus.ctrlp.command_candidates = [
         \['CtrlP con lineas                                           ⌘ ,pl', ':CtrlPLine'],
