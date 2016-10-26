@@ -681,8 +681,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-let g:UltiSnipsSnippetsDir = "~/dotfiles/UltiSnips"
-let g:UltiSnipsSnippetDirectories=["~/dotfiles/UltiSnips"]
+
+" Directorio privado de snippets 
+" let g:UltiSnipsSnippetsDir="/home/moterod/dotfiles/mis-snippets"
+" let g:UltiSnipsEnableSnipMate='1'
+"let g:UltiSnipsSnippetDirectories = ['/home/moterod/dotfiles/mis-snippets']
+let g:UltiSnipsSnippetDirectories=[expand("~/dotfiles/mis-snippets")]
+
+
 
 function! UltiSnipsCallUnite()
     Unite -start-insert -winheight=100 -immediately -no-empty ultisnips
@@ -715,6 +721,7 @@ let g:syntastic_check_on_wq = 0
 " -------------------------------------------------------
 set pastetoggle=<F3>
 nmap Q <nop>
+nmap quit <Esc>:qall!<CR>
 
 let g:unite_enable_start_insert = 1
 "nnoremap <C-p> :Unite file_rec/async -start-insert<cr>
