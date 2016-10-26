@@ -158,4 +158,12 @@ snippet cw "console.warn" b
 console.warn(${1:"${2:value}"});
 endsnippet
 
+snippet	gulp "gulp boilerplate" b
+var gulp = require('gulp');
+
+gulp.task('default', function() {
+	return gulp.src('css/main.css')
+		.pipe(minifycss());
+});
+endsnippet
 # vim:ft=snippets:
