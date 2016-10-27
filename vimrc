@@ -133,6 +133,7 @@ augroup MisAutocmd
     " !autocmd ....
 augroup END
 
+
 "*****************************************************************************
 "" NeoBundle core
 "*****************************************************************************
@@ -775,3 +776,20 @@ let g:pymode_lint_pyflakes_symbol = 'FF'
 let g:pymode_lint_ignore = "E501,E128"
 
 let g:pymode_rope_complete_on_dot=0
+
+augroup cursorline
+    autocmd!
+    autocmd WinLeave,BufLeave * set nocursorline
+    autocmd WinEnter,BufEnter * set cursorline
+augroup end
+
+"let g:syntastic_quiet_messages = {
+"        \ "!level":  "errors",
+"        \ "type":    "style",
+"        \ "regex":   '\m\[C03\d\d\]',
+"        \ "file:p":  ['\m^/usr/include/', '\m\c\.h$'] }
+let g:syntastic_quiet_messages = {
+        \ "regex":   'pasdfasdfadsf' }
+
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_cpp_remove_include_errors = 1
