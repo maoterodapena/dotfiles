@@ -1,124 +1,152 @@
 snippet setup
-	void setup()
-	{
-		Serial.begin(${1:9600});
-		${2}
-	}
+void setup()
+{
+	Serial.begin(${1:9600});
+	${2}
+}
+endsnippet
 
 snippet loop
-	void loop()
-	{
-		${0}
-	}
+void loop()
+{
+	${0}
+}
+endsnippet
 
 snippet inc
-	#include <${1}.h>
+#include <${1}.h>
+endsnippet
 
 snippet def
-	#define ${1}
+#define ${1}
+endsnippet
 
 # if
 snippet if
-	if (${1:/* condition */}) {
-		${2}
-	}
+if (${1:/* condition */}) {
+	${2}
+}
+endsnippet
 # else
 snippet el
-	else {
-		${1}
-	}
+else {
+	${1}
+}
+endsnippet
 # else if
 snippet elif
-	else if (${1:/* condition */}) {
-		${2}
-	}
+else if (${1:/* condition */}) {
+	${2}
+}
+endsnippet
 # ifi
 snippet ifi
-	if (${1:/* condition */}) ${2};
+if (${1:/* condition */}) ${2};
+endsnippet
 
 # switch
 snippet switch
-	switch (${1:/* variable */}) {
-		case ${2:/* variable case */}:
-			${3}
-			${4:break;}${5}
-		default:
-			${6}
-	}
+switch (${1:/* variable */}) {
+	case ${2:/* variable case */}:
+		${3}
+		${4:break;}${5}
+	default:
+		${6}
+}
+endsnippet
 
 snippet case
-	case ${1:/* variable case */}:
-		${2}
-		${3:break;}
+case ${1:/* variable case */}:
+	${2}
+	${3:break;}
+endsnippet
 
 # for
 snippet for
-	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
-		${4}
-	}
+for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
+	${4}
+}
+endsnippet
 # for (custom)
 snippet forr
-	for (int ${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {
-		${5}
-	}
+for (int ${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {
+	${5}
+}
+endsnippet
 # while
 snippet wh
-	while (${1:/* condition */}) {
-		${2}
-	}
+while (${1:/* condition */}) {
+	${2}
+}
+endsnippet
 # do... while
 snippet do
-	do {
-		${2}
-	} while (${1:/* condition */});
+do {
+	${2}
+} while (${1:/* condition */});
+endsnippet
 ##
 ## Functions
 # function definition
 snippet fun
-	${1:void} ${2:function_name}(${3})
-	{
-		${4}
-	}
+${1:void} ${2:function_name}(${3})
+{
+	${4}
+}
+endsnippet
 
 ## IO
 # pinMode OUTPUT
 snippet pinout
-	pinMode(${1}, OUTPUT);
+pinMode(${1}, OUTPUT);
+endsnippet
 # pinMode INPUT
 snippet pinin
-	pinMode(${1}, INPUT);
+pinMode(${1}, INPUT);
+endsnippet
 # digitalWrite HIGH
 snippet dwHigh
-	digitalWrite(${1}, HIGH);
+digitalWrite(${1}, HIGH);
+endsnippet
 # digitalWrite LOW
 snippet dwLow
-	digitalWrite(${1}, LOW);
+digitalWrite(${1}, LOW);
+endsnippet
 # digitalRead
 snippet dr
-	digitalRead(${1});
+digitalRead(${1});
+endsnippet
 # analogRead
 snippet ar
-	analogRead(${1});
+analogRead(${1});
+endsnippet
 # analogWrite
 snippet aw
-	analogWrite(${1});
+analogWrite(${1});
+endsnippet
 # serialRead
 snippet sr
-	Serial.read();
+Serial.read();
+endsnippet
 # serialWrite
 snippet sw
-	Serial.write();
+Serial.write();
+endsnippet
 # serial.print
 snippet sp
-	Serial.print(${1});
+Serial.print(${1});
+endsnippet
 # serial.println
 snippet sl
-	Serial.println(${1});
+Serial.println(${1});
+endsnippet
 
 
 # delay
 snippet dl
-	delay(${1});
+delay(${1});
+endsnippet
 # millis
 snippet ml
-	millis();
+millis();
+endsnippet

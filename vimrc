@@ -196,7 +196,8 @@ NeoBundle 'klen/python-mode'
 "NeoBundle 'alfredodeza/khuno.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
-"NeoBundle 'ervandew/supertab'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'sudar/vim-arduino-syntax'
 
 NeoBundle 'kien/ctrlp.vim'
 
