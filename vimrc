@@ -197,7 +197,9 @@ NeoBundle 'klen/python-mode'
 "NeoBundle 'alfredodeza/khuno.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'ervandew/supertab'
+"NeoBundle 'ervandew/supertab'
+NeoBundle "Valloric/YouCompleteMe"
+
 NeoBundle 'sudar/vim-arduino-syntax'
 
 NeoBundle 'kien/ctrlp.vim'
@@ -677,9 +679,9 @@ let g:ack_mappings = {
 " UltiSnips
 " -------------------------------------------------------
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="<C-l>"
+let g:UltiSnipsJumpBackwardTrigger="<C-h>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
@@ -777,11 +779,12 @@ let g:pymode_lint_ignore = "E501,E128"
 
 let g:pymode_rope_complete_on_dot=0
 
-augroup cursorline
-    autocmd!
-    autocmd WinLeave,BufLeave * set nocursorline
-    autocmd WinEnter,BufEnter * set cursorline
-augroup end
+" Resalta linea en el buffer activo
+"augroup cursorline
+"    autocmd!
+"    autocmd WinLeave,BufLeave * set nocursorline
+"    autocmd WinEnter,BufEnter * set cursorline
+"augroup end
 
 "let g:syntastic_quiet_messages = {
 "        \ "!level":  "errors",
@@ -793,3 +796,6 @@ let g:syntastic_quiet_messages = {
 
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_cpp_remove_include_errors = 1
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
