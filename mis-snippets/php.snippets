@@ -257,4 +257,18 @@ snip.rv = re.match(r'.*(?=\.)', fn).group()
 }
 endsnippet
 
+snippet gladeview "Description" b
+@extends('${1:layouts.app}')
+
+@section('title', '${2:Titulo}')
+
+@section('content')
+
+@foreach ($${3}s as $$3)
+<li>{{ $$3->description}}</li>
+@endforeach
+
+@endsection
+
+endsnippet
 # :vim:ft=snippets:

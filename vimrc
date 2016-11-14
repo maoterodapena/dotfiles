@@ -89,6 +89,7 @@ augroup AusNavegacion
     autocmd!
     " Navegacion en help con <enter> (C-] no es comodo con teclado espanol
     autocmd filetype help :nnoremap <buffer><CR> <c-]>
+    autocmd filetype php :nnoremap <buffer><CR> <c-]>
 augroup END
 
 " Mueve al principio linea
@@ -133,6 +134,11 @@ augroup MisAutocmd
     " !autocmd ....
 augroup END
 
+" Abrir fichero en la ultima linea editada
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" | endif
+endif
 
 "*****************************************************************************
 "" NeoBundle core
@@ -203,6 +209,17 @@ NeoBundle "Valloric/YouCompleteMe"
 NeoBundle 'sudar/vim-arduino-syntax'
 
 NeoBundle 'kien/ctrlp.vim'
+
+NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'mkusher/padawan.vim'
+"NeoBundle 'm2mdas/phpcomplete-extended'
+"NeoBundl'm2mdas/phpcomplete-extended-laravel'
+"NeoBundle 'phpvim/phpcd.vim', { 'for': 'php' , 'do': 'composer update' }
+" Para que al cerrar un buffer no me joda el layout
+NeoBundle 'moll/vim-bbye'
+
+NeoBundle 'majutsushi/tagbar'
+
 
 call neobundle#end()
 
@@ -384,6 +401,25 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
     \]
 
     exe 'nnoremap <silent>[menu]a :Unite -silent -winheight='.(len(g:unite_source_menu_menus.grep.command_candidates) + 2).' menu:grep<CR>'
+
+" }}}
+
+" TagBar {{{
+
+    nnoremap <silent>[menu]rt :TagbarToggle<CR>
+    nnoremap <silent>[menu]ro :TagbarOpen<CR
+    nnoremap <silent>[menu]rc :TagbarClose<CR
+
+    let g:unite_source_menu_menus.tagbar = {
+        \ 'description' : '       tagba(r) functions                                      ⌘ [space]r'}
+
+    let g:unite_source_menu_menus.tagbar.command_candidates = [
+        \['TagbarOpen                                                 ⌘ [space]ro', 'TagbarOpen'],
+        \['TagbarClose                                                ⌘ [space]rc', 'TagbarClose'],
+        \['TagbarToggle                                               ⌘ [space]rt', 'TagbarToggle'],
+    \]
+ 
+    exe 'nnoremap <silent>[menu]r :Unite -silent -winheight='.(len(g:unite_source_menu_menus.tagbar.command_candidates) + 2).' menu:tagbar<CR>'
 
 " }}}
 
@@ -742,6 +778,10 @@ nnoremap <space>b :Unite -start-insert buffer<cr>
 "nnoremap <space>b :CtrlPBuffer<CR>
 "nnoremap <space>p :CtrlPMixed<CR>
 let g:ctrlp_working_path_mode = 'w'
+let g:ctrlp_prompt_mappings = {
+\ 'AcceptSelection("h")': ['<c-h>'],
+\ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+\ }
 
 " Portapapeles compartido con X
 if has('unnamedplus')
@@ -797,5 +837,29 @@ let g:syntastic_quiet_messages = {
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_cpp_remove_include_errors = 1
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
+
+""" Padawan
+"let $PATH=$PATH . ':' . expand('~/.config/composer/vendor/bin')
+"let g:padawan#composer_command = "composer"
+
+"let g:ycm_semantic_triggers = {}
+"let g:ycm_semantic_triggers.php =
+"            \ ['->', '::', '(', 'use ', 'namespace ', '\']
+
+" phpcomplete-extended
+"autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+"let g:phpcomplete_index_composer_command="composer"
+
+let g:EclimCompletionMethod = 'omnifunc'
+" Cierra la ventana (pclose) de preview al seleccionar una opcion del
+" autocomplete
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" vim-bbye
+nnoremap <Leader>q :Bdelete<CR>
+
+" tagbar
+nmap <leader>t :TagbarToggle<cr>
