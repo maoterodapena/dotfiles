@@ -72,8 +72,8 @@ set mouse=a
 nmap <RightMouse> :set paste<cr>"+gP:set nopaste<cr>
 
 " Scroll mas rapido
-nnoremap K 5k
-nmap J 5j
+" nnoremap K 5k
+"nmap J 5j
 nmap <Leader>J :join<CR>
 
 " Cambio de buffers
@@ -119,10 +119,22 @@ imap <leader>. <Esc>:wall<Enter>:q<Enter>
  inoremap <C-j> <Esc><C-w>j
  inoremap <C-k> <Esc><C-w>k
  inoremap <C-l> <Esc><C-w>l
- nnoremap <C-h> <C-w>h
- nnoremap <C-j> <C-w>j
- nnoremap <C-k> <C-w>k
- nnoremap <C-l> <C-w>l
+ vnoremap <C-h> <Esc><C-w>h
+ vnoremap <C-j> <Esc><C-w>j
+ vnoremap <C-k> <Esc><C-w>k
+ vnoremap <C-l> <Esc><C-w>l
+ nmap <C-h> <C-w>h
+ nmap <C-j> <C-w>j
+ nmap <C-k> <C-w>k
+ nmap <C-l> <C-w>l
+ vmap <C-h> <esc><C-h>
+ vmap <C-j> <esc><C-j>
+ vmap <C-k> <esc><C-k>
+ vmap <C-l> <esc><C-l>
+ imap <C-h> <esc><C-h>
+ imap <C-j> <esc><C-j>
+ imap <C-k> <esc><C-k>
+ imap <C-l> <esc><C-l>
 
  " Control-c para cortar en visual
 vmap <c-c> "+y
@@ -743,6 +755,7 @@ nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnips
 " solo para html y css
 let g:user_emmet_install_global = 0
 autocmd BufRead,BufNewFile *.blade.php set filetype=html
+autocmd BufRead,BufNewFile *.vue set filetype=html
 autocmd FileType html,css EmmetInstall
 
 " -------------------------------------------------------
