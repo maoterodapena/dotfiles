@@ -166,4 +166,25 @@ gulp.task('default', function() {
 		.pipe(minifycss());
 });
 endsnippet
+
+snippet vuec "Vue component" b
+Vue.component('$1', {
+    props: [],
+	template: ''
+})
+endsnippet
+
+snippet vue "Vue application" b
+var app = new Vue({
+    el: '#$1',
+	data: {
+	},
+	methods: {
+	},
+});
+endsnippet
+
+snippet vuejs "Insert vue2.0 javascript" b
+<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+endsnippet
 # vim:ft=snippets:

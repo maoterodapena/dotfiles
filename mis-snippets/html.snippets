@@ -321,8 +321,52 @@ endsnippet
 snippet viewport "Responsive viewport meta" w
 <meta name="viewport" content="width=device-width, initial-scale=1">
 endsnippet
-# vim:ft=snippets:
 
-snippet mio
-esto esta en bundle vim-snippets ultisnips html.snippets
+snippet vuec "Vue component" b
+Vue.component('$1', {
+    props: [],
+	template: ''
+})
 endsnippet
+
+snippet vue "Vue application" b
+var app = new Vue({
+    el: '#$1',
+	data: {
+	},
+	methods: {
+	},
+});
+endsnippet
+
+snippet vuejs "Insert vue2.0 javascript" b
+<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+endsnippet
+
+snippet bootstrapmin "Insert bootstrap css"
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+endsnippet
+
+snippet text-field "Text field into bootstrap form-group"
+<div class="form-group">
+    <label for="$1">${1/\w+\s*/\u$0/}:</label>
+	<input type="text" name="$1" id="$1" class="form-control" value="">
+</div>
+endsnippet
+
+snippet textarea-field "Textarea field into bootstrap form-group"
+<div class="form-group">
+    <label for="$1">${1/\w+\s*/\u$0/}:</label>
+	<textarea type="text" name="$1" id="$1" class="form-control">
+	</textarea>
+</div>
+endsnippet
+
+snippet submit-field "Submit button into bootstrap form-group"
+<div class="form-group">
+    <button type="submit" class="btn btn-default">$1</button>
+</div>
+endsnippet
+
+
+# vim:ft=snippets:
