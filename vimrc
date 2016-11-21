@@ -740,7 +740,7 @@ let g:UltiSnipsEditSplit="vertical"
 " let g:UltiSnipsSnippetsDir="/home/moterod/dotfiles/mis-snippets"
 " let g:UltiSnipsEnableSnipMate='1'
 "let g:UltiSnipsSnippetDirectories = ['/home/moterod/dotfiles/mis-snippets']
-let g:UltiSnipsSnippetDirectories=[expand("~/dotfiles/mis-snippets"), expand("~/dotfiles/snippets")]
+let g:UltiSnipsSnippetDirectories=[expand("~/dotfiles/mis-snippets")]
 
 
 
