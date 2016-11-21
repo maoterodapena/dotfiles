@@ -203,6 +203,8 @@ NeoBundle "Valloric/YouCompleteMe"
 NeoBundle 'sudar/vim-arduino-syntax'
 
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'shawncplus/phpcomplete.vim'
+
 
 call neobundle#end()
 

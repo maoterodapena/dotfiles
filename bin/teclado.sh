@@ -18,3 +18,5 @@ fi
 sleep 1
 killall -q -9 apport-gtk 2>/dev/null
 
+# Si se quedan colgadas las mayusculas:
+# xdotool key Caps_Lock
