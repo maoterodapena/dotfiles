@@ -72,8 +72,8 @@ set mouse=a
 nmap <RightMouse> :set paste<cr>"+gP:set nopaste<cr>
 
 " Scroll mas rapido
-nnoremap K 5k
-nmap J 5j
+" nnoremap K 5k
+"nmap J 5j
 nmap <Leader>J :join<CR>
 
 " Cambio de buffers
@@ -89,6 +89,7 @@ augroup AusNavegacion
     autocmd!
     " Navegacion en help con <enter> (C-] no es comodo con teclado espanol
     autocmd filetype help :nnoremap <buffer><CR> <c-]>
+    autocmd filetype php :nnoremap <buffer><CR> <c-]>
 augroup END
 
 " Mueve al principio linea
@@ -118,10 +119,22 @@ imap <leader>. <Esc>:wall<Enter>:q<Enter>
  inoremap <C-j> <Esc><C-w>j
  inoremap <C-k> <Esc><C-w>k
  inoremap <C-l> <Esc><C-w>l
- nnoremap <C-h> <C-w>h
- nnoremap <C-j> <C-w>j
- nnoremap <C-k> <C-w>k
- nnoremap <C-l> <C-w>l
+ vnoremap <C-h> <Esc><C-w>h
+ vnoremap <C-j> <Esc><C-w>j
+ vnoremap <C-k> <Esc><C-w>k
+ vnoremap <C-l> <Esc><C-w>l
+ nmap <C-h> <C-w>h
+ nmap <C-j> <C-w>j
+ nmap <C-k> <C-w>k
+ nmap <C-l> <C-w>l
+ vmap <C-h> <esc><C-h>
+ vmap <C-j> <esc><C-j>
+ vmap <C-k> <esc><C-k>
+ vmap <C-l> <esc><C-l>
+ imap <C-h> <esc><C-h>
+ imap <C-j> <esc><C-j>
+ imap <C-k> <esc><C-k>
+ imap <C-l> <esc><C-l>
 
  " Control-c para cortar en visual
 vmap <c-c> "+y
@@ -133,6 +146,11 @@ augroup MisAutocmd
     " !autocmd ....
 augroup END
 
+" Abrir fichero en la ultima linea editada
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" | endif
+endif
 
 "*****************************************************************************
 "" NeoBundle core
@@ -204,6 +222,17 @@ NeoBundle 'sudar/vim-arduino-syntax'
 
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'shawncplus/phpcomplete.vim'
+
+
+NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'mkusher/padawan.vim'
+"NeoBundle 'm2mdas/phpcomplete-extended'
+"NeoBundl'm2mdas/phpcomplete-extended-laravel'
+"NeoBundle 'phpvim/phpcd.vim', { 'for': 'php' , 'do': 'composer update' }
+" Para que al cerrar un buffer no me joda el layout
+NeoBundle 'moll/vim-bbye'
+
+NeoBundle 'majutsushi/tagbar'
 
 
 call neobundle#end()
@@ -386,6 +415,25 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
     \]
 
     exe 'nnoremap <silent>[menu]a :Unite -silent -winheight='.(len(g:unite_source_menu_menus.grep.command_candidates) + 2).' menu:grep<CR>'
+
+" }}}
+
+" TagBar {{{
+
+    nnoremap <silent>[menu]rt :TagbarToggle<CR>
+    nnoremap <silent>[menu]ro :TagbarOpen<CR
+    nnoremap <silent>[menu]rc :TagbarClose<CR
+
+    let g:unite_source_menu_menus.tagbar = {
+        \ 'description' : '       tagba(r) functions                                      ⌘ [space]r'}
+
+    let g:unite_source_menu_menus.tagbar.command_candidates = [
+        \['TagbarOpen                                                 ⌘ [space]ro', 'TagbarOpen'],
+        \['TagbarClose                                                ⌘ [space]rc', 'TagbarClose'],
+        \['TagbarToggle                                               ⌘ [space]rt', 'TagbarToggle'],
+    \]
+ 
+    exe 'nnoremap <silent>[menu]r :Unite -silent -winheight='.(len(g:unite_source_menu_menus.tagbar.command_candidates) + 2).' menu:tagbar<CR>'
 
 " }}}
 
@@ -709,6 +757,7 @@ nnoremap <silent> <F12> a<C-R>=(pumvisible()? "\<LT>C-E>":"")<CR><C-R>=UltiSnips
 " solo para html y css
 let g:user_emmet_install_global = 0
 autocmd BufRead,BufNewFile *.blade.php set filetype=html
+autocmd BufRead,BufNewFile *.vue set filetype=html
 autocmd FileType html,css EmmetInstall
 
 " -------------------------------------------------------
@@ -744,6 +793,10 @@ nnoremap <space>b :Unite -start-insert buffer<cr>
 "nnoremap <space>b :CtrlPBuffer<CR>
 "nnoremap <space>p :CtrlPMixed<CR>
 let g:ctrlp_working_path_mode = 'w'
+let g:ctrlp_prompt_mappings = {
+\ 'AcceptSelection("h")': ['<c-h>'],
+\ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
+\ }
 
 " Portapapeles compartido con X
 if has('unnamedplus')
@@ -799,5 +852,29 @@ let g:syntastic_quiet_messages = {
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_cpp_remove_include_errors = 1
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
+
+""" Padawan
+"let $PATH=$PATH . ':' . expand('~/.config/composer/vendor/bin')
+"let g:padawan#composer_command = "composer"
+
+"let g:ycm_semantic_triggers = {}
+"let g:ycm_semantic_triggers.php =
+"            \ ['->', '::', '(', 'use ', 'namespace ', '\']
+
+" phpcomplete-extended
+"autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+"let g:phpcomplete_index_composer_command="composer"
+
+let g:EclimCompletionMethod = 'omnifunc'
+" Cierra la ventana (pclose) de preview al seleccionar una opcion del
+" autocomplete
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" vim-bbye
+nnoremap <Leader>q :Bdelete<CR>
+
+" tagbar
+nmap <leader>t :TagbarToggle<cr>

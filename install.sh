@@ -25,4 +25,6 @@ which xbindkeys > /dev/null || echo "Ojo: xbindkeys no instalado"
 dotfile "$THISDIR/xbindkeysrc" "$HOME/.xbindkeysrc"
 dotfile "$THISDIR/bin/move2tile.sh" "$HOME/bin/move2tile.sh"
 dotfile "$THISDIR/bin/teclado.sh" "$HOME/bin/teclado.sh"
+which vifm > /dev/null || echo "Ojo: vifm no instalado"
+dotfile "$THISDIR/vifm" "$HOME/.vifm"
 
