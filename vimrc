@@ -862,6 +862,9 @@ let g:syntastic_cpp_remove_include_errors = 1
 "let g:ycm_semantic_triggers = {}
 "let g:ycm_semantic_triggers.php =
 "            \ ['->', '::', '(', 'use ', 'namespace ', '\']
+let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+' ],
+    \ }
 
 " phpcomplete-extended
 "autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP

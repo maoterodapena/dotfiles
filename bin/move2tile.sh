@@ -1,6 +1,31 @@
 #!/bin/sh
 #
 RESV=1080
+
+move2desktop () {
+    desktop=$(xdotool get_desktop)
+    num_desktops=$(xdotool get_num_desktops)
+    active=$(xdotool getactivewindow)
+
+    if [ "$1" = "next" ]; then
+        xdotool set_desktop $(( ($desktop + 1) % num_desktops ))
+    elif [ "$1" = "prev" ]; then
+        xdotool set_desktop $(( ($desktop + 3) % num_desktops ))
+    fi
+}
+movew2desktop () {
+    desktop=$(xdotool get_desktop)
+    num_desktops=$(xdotool get_num_desktops)
+    active=$(xdotool getactivewindow)
+
+    if [ "$1" = "next" ]; then
+        xdotool getactivewindow set_desktop_for_window $(( ($desktop + 1) % num_desktops ))
+        xdotool windowactivate $active
+    elif [ "$1" = "prev" ]; then
+        xdotool getactivewindow set_desktop_for_window $(( ($desktop + 3) % num_desktops ))
+        xdotool windowactivate $active
+    fi
+}
 RESH=1920
 
 
@@ -118,6 +143,16 @@ case $1 in
         # ECHAR ATRAS
         wmctrl -r :ACTIVE: -b toggle,below
         exit 0
+        ;;
+    'w2desktop')
+        movew2desktop $2
+        exit 0
+        ;;
+    '2desktop')
+        move2desktop $2
+        exit 0
+        ;;
+
 
 esac
 
@@ -130,6 +165,7 @@ casiigual () {
         echo 0
     fi
 }
+
 
 echo "$geo_ax-$NX : $NY-$(($geo_ay-$HIGHTOPPANEL-$HIGHWINDOWPANEL))"
 if [ $(casiigual $geo_ax $NX) -eq 1 -a $(casiigual $NY $(($geo_ay-$HIGHTOPPANEL-$HIGHWINDOWPANEL))) -eq 1 ]

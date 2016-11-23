@@ -1,3 +1,137 @@
+<<<<<<< HEAD
+=======
+
+snippet bs-cdn-css "Insert bootstrap CSS cdn" b
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" media="all" />
+endsnippet
+
+snippet bs-cdn-script "Insert bootstrap javascript" b
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+endsnippet
+
+snippet container "Insert bootstrap div container" b
+<div class="container">
+  $1
+</div>
+endsnippet
+
+
+
+snippet nav-bar "Insert boostrap nav-bar" b
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+endsnippet
+snippet bs-panel-default "Insert bootstrap panel-default" b
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="clearfix">
+	  <span class="panel-title">$1</span>
+	  $2
+	  </div>
+    </div>
+  </div>
+  <div class="panel-body>
+    <div class="">
+	</div>
+  </div>
+	  
+
+</div>
+endsnippet
+
+snippet "(\w+).par" "Parenthesis (postfix)" r
+(`!p snip.rv = match.group(1)`$1)$0
+endsnippet
+snippet "bs-table-(\w+)" "Tabla de -n columnas" br
+(`!p snip.rv = '<table>
+  <tr>
+    <td>' match.group(1)`$1)$0
+endsnippet
+
+snippet wow
+${1:Text}`!p snip.rv = (75-2*len(t[1]))*' '+t[1].upper()`
+endsnippet
+
+snippet bs-table "Insert bootstrap table" b
+<table class="table table-striped">
+  <thead>
+    <th>${1:column}</th>
+  </thead>
+  <tbody>
+    <td><td>
+  </tbody>
+</table>
+endsnippet
+
+snippet bs-dropdown "Insert dropdown menu" b
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${1:Dropdown title}<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+	<li><a href="#">${2:Action 1}</a></li>
+	<li role="separator" class="divider"></li>
+  </ul>
+</li>
+endsnippet
+
+snippet bs-btn-href "Insert href button" b
+<a href="$1" class="btn btn-success pull-${3:right}">${2:link}</a>
+endsnippet
+
+
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 extends html
 
 snippet bs3-hello "Description" b
@@ -23,10 +157,19 @@ snippet bs3-hello "Description" b
     <![endif]-->
   </head>
   <body>
+<<<<<<< HEAD
     <h1>${2:Hello, world!}</h1>
 
 	$0
 
+=======
+    <div class="container">
+
+	$0
+
+	</div>
+
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -435,6 +578,7 @@ snippet bs3-icon:glyphicon
 endsnippet
 
 snippet bs3-template:html5
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="${1}">
@@ -455,6 +599,31 @@ snippet bs3-template:html5
 		<!-- Bootstrap JavaScript -->
 		<script src="${5://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js}"></script>
 	</body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>${2:Title Page}</title>
+      <meta charset="UTF-8">
+      <meta name=description content="">
+      <meta name=viewport content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Bootstrap CSS -->
+      <link href="${3://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    </head>
+  <body>
+    <div class="container">
+
+    $0
+
+    </div>
+
+  <!-- jQuery -->
+    <script src="${4://code.jquery.com/jquery.js}"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="${5://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js}"></script>
+  </body>
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 </html>
 
 endsnippet
@@ -1020,7 +1189,11 @@ endsnippet
 
 snippet bs3-navbar:basic
 
+<<<<<<< HEAD
 <div class="navbar">
+=======
+<div class="navbar navbar-default">
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 	<a class="navbar-brand" href="#">${1:Title}</a>
 	<ul class="nav navbar-nav">
 		<li class="active">
@@ -1298,10 +1471,17 @@ snippet bs3-panel:danger
 
 <div class="panel panel-${1:danger}">
 	  <div class="panel-heading">
+<<<<<<< HEAD
 			<h3 class="panel-title">Panel title</h3>
 	  </div>
 	  <div class="panel-body">
 			${2:Panel content}
+=======
+			<h3 class="panel-title">${2:Panel title}</h3>
+	  </div>
+	  <div class="panel-body">
+			${3:Panel content}
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 	  </div>
 </div>
 
@@ -1324,10 +1504,17 @@ snippet bs3-panel:heading
 
 <div class="panel panel-${1:default}">
 	  <div class="panel-heading">
+<<<<<<< HEAD
 			<h3 class="panel-title">Panel title</h3>
 	  </div>
 	  <div class="panel-body">
 			${2:Panel content}
+=======
+			<h3 class="panel-title">${2:Panel title}</h3>
+	  </div>
+	  <div class="panel-body">
+			${3:Panel content}
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 	  </div>
 </div>
 
@@ -1337,10 +1524,17 @@ snippet bs3-panel:info
 
 <div class="panel panel-${1:info}">
 	  <div class="panel-heading">
+<<<<<<< HEAD
 			<h3 class="panel-title">Panel title</h3>
 	  </div>
 	  <div class="panel-body">
 			${2:Panel content}
+=======
+			<h3 class="panel-title">${2:Panel title}</h3>
+	  </div>
+	  <div class="panel-body">
+			${3:Panel content}
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 	  </div>
 </div>
 
@@ -1350,10 +1544,17 @@ snippet bs3-panel:primary
 
 <div class="panel panel-${1:primary}">
 	  <div class="panel-heading">
+<<<<<<< HEAD
 			<h3 class="panel-title">Panel title</h3>
 	  </div>
 	  <div class="panel-body">
 			${2:Panel content}
+=======
+			<h3 class="panel-title">${2:Panel title}</h3>
+	  </div>
+	  <div class="panel-body">
+			${3:Panel content}
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 	  </div>
 </div>
 
@@ -1363,10 +1564,17 @@ snippet bs3-panel:success
 
 <div class="panel panel-${1:success}">
 	  <div class="panel-heading">
+<<<<<<< HEAD
 			<h3 class="panel-title">Panel title</h3>
 	  </div>
 	  <div class="panel-body">
 			${2:Panel content}
+=======
+			<h3 class="panel-title">${2:Panel title}</h3>
+	  </div>
+	  <div class="panel-body">
+			${3:Panel content}
+>>>>>>> 99000cc1ed8c8b5d41af663bddec6308329a8f34
 	  </div>
 </div>
 
