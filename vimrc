@@ -214,7 +214,7 @@ NeoBundle 'scrooloose/syntastic'     " Checkea sintaxis
 NeoBundle 'klen/python-mode'
 "NeoBundle 'alfredodeza/khuno.vim'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+"NeoBundle 'honza/vim-snippets'
 "NeoBundle 'ervandew/supertab'
 NeoBundle "Valloric/YouCompleteMe"
 
@@ -759,6 +759,7 @@ let g:user_emmet_install_global = 0
 autocmd BufRead,BufNewFile *.blade.php set filetype=html
 autocmd BufRead,BufNewFile *.vue set filetype=html
 autocmd FileType html,css EmmetInstall
+autocmd Filetype html setlocal shiftwidth=2 tabstop=2
 
 " -------------------------------------------------------
 " Syntastic
