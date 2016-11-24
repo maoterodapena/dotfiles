@@ -224,7 +224,6 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'shawncplus/phpcomplete.vim'
 
 
-NeoBundle 'majutsushi/tagbar'
 "NeoBundle 'mkusher/padawan.vim'
 "NeoBundle 'm2mdas/phpcomplete-extended'
 "NeoBundl'm2mdas/phpcomplete-extended-laravel'
@@ -233,6 +232,8 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'moll/vim-bbye'
 
 NeoBundle 'majutsushi/tagbar'
+
+NeoBundle 'ap/vim-css-color'
 
 
 call neobundle#end()
