@@ -652,6 +652,7 @@ function! s:vimfiler_my_settings() "{{{
     nmap <buffer> p <Plug>(vimfiler_quick_look)
     nmap <buffer> <LeftRelease> <Plug>(vimfiler_smart_l)
     "nmap <buffer> H :call <SID>vimfiler_michi_shell_in_dir()<cr>
+    nmap <buffer> <c-r> <Plug>(vimfiler_redraw_screen)
 
     " para ir por splits de tmux desde un buffer de vimfiler
     nunmap <buffer> <C-j>
