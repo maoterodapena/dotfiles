@@ -235,6 +235,8 @@ NeoBundle 'majutsushi/tagbar'
 
 NeoBundle 'ap/vim-css-color'
 
+NeoBundle 'vim-scripts/restore_view.vim'
+
 
 call neobundle#end()
 
@@ -799,6 +801,17 @@ let g:ctrlp_prompt_mappings = {
 \ 'AcceptSelection("h")': ['<c-h>'],
 \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
 \ }
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+endif
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<space>
+
 
 " Portapapeles compartido con X
 if has('unnamedplus')
