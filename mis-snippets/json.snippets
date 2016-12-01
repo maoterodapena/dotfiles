@@ -49,3 +49,60 @@ endglobal
 snippet b "Bool" b
 "${1:key}": $2`!p snip.rv=compB(t[2], ['true', 'false'])`,
 endsnippet
+
+snippet crud "crud json generator"
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false
+    },
+
+	$0
+
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]
+
+
+endsnippet
+
+snippet crud-f "crud field generator (put between [])" b
+{
+  "name:" "$1",
+  "dbType": "$2`!p snip.rv=compB(t[2], ['increments', 'string'])`",
+  "htmltype": $3`!p snip.rv=compB(t[3], ['null', '"text"', '"textarea"', '"email"', '"date"', '"number"', '"password"', '"file"', '"select,value1,value2,value3"', '"select,label1,value1:label2,value2"', '"chekbox"', '"checkbox,value"', '"radio"', '"radio,label1,label2"'])`,
+  "validations": $4`!p snip.rv=compB(t[4], ['null', '"required"', '"email"', '""', '""', '""',])`,
+  "searchable": $5`!p snip.rv=compB(t[5], ['true', 'false'])`,
+  "fillable": $6`!p snip.rv=compB(t[6], ['true', 'false'])`,
+  "primary": $7`!p snip.rv=compB(t[7], ['true', 'false'])`,
+  "inForm": $8`!p snip.rv=compB(t[8], ['true', 'false'])`,
+  "inIndex": $9`!p snip.rv=compB(t[9], ['true', 'false'])`
+},
+endsnippet

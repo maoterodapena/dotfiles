@@ -804,7 +804,7 @@ let g:ctrlp_prompt_mappings = {
 \ }
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -U -g ""'
     let g:ctrlp_use_caching = 0
 endif
 " bind K to grep word under cursor
