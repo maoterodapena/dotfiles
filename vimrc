@@ -237,6 +237,7 @@ NeoBundle 'ap/vim-css-color'
 
 NeoBundle 'vim-scripts/restore_view.vim'
 
+NeoBundle 'szw/vim-maximizer'
 
 call neobundle#end()
 
@@ -421,6 +422,18 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
 
 " }}}
 
+" vim-maximizer {{{
+
+    let g:unite_source_menu_menus.maximizer= {
+        \ 'description' : '      vim-maximizer functions                                        '}
+
+    let g:unite_source_menu_menus.maximizer.command_candidates = [
+        \['MaximizerToggle                                            ⌘ F3', 'MaximizerToggle'],
+    \]
+ 
+
+" }}}
+
 " TagBar {{{
 
     nnoremap <silent>[menu]rt :TagbarToggle<CR>
@@ -428,7 +441,7 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
     nnoremap <silent>[menu]rc :TagbarClose<CR
 
     let g:unite_source_menu_menus.tagbar = {
-        \ 'description' : '       tagba(r) functions                                      ⌘ [space]r'}
+        \ 'description' : '         tagba(r) functions                                    ⌘ [space]r'}
 
     let g:unite_source_menu_menus.tagbar.command_candidates = [
         \['TagbarOpen                                                 ⌘ [space]ro', 'TagbarOpen'],
@@ -622,6 +635,7 @@ let g:vimfiler_marked_file_icon = '✓'
 let g:vimfiler_enabled_auto_cd = 1
 call vimfiler#custom#profile('default','context', { 
             \ 'safe' : 0,
+            \ 'find' : 1,
             \'auto_cd': 1})
 autocmd FileType vimfiler call s:vimfiler_my_settings()
 
@@ -897,3 +911,6 @@ nnoremap <Leader>q :Bdelete<CR>
 
 " tagbar
 nmap <leader>t :TagbarToggle<cr>
+
+" vim-maximizer
+
