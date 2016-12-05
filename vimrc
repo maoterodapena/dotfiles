@@ -439,6 +439,7 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
     nnoremap <silent>[menu]rt :TagbarToggle<CR>
     nnoremap <silent>[menu]ro :TagbarOpen<CR
     nnoremap <silent>[menu]rc :TagbarClose<CR
+    nnoremap <silent>[menu]rp :CtrlPTag<CR
 
     let g:unite_source_menu_menus.tagbar = {
         \ 'description' : '         tagba(r) functions                                    ⌘ [space]r'}
@@ -447,6 +448,7 @@ nnoremap <silent>[menu]u :Unite -silent -winheight=12 menu<CR>
         \['TagbarOpen                                                 ⌘ [space]ro', 'TagbarOpen'],
         \['TagbarClose                                                ⌘ [space]rc', 'TagbarClose'],
         \['TagbarToggle                                               ⌘ [space]rt', 'TagbarToggle'],
+        \['CtrlPTag                                                   ⌘ [space]rp', 'CtrlPTag'],
     \]
  
     exe 'nnoremap <silent>[menu]r :Unite -silent -winheight='.(len(g:unite_source_menu_menus.tagbar.command_candidates) + 2).' menu:tagbar<CR>'
