@@ -239,6 +239,8 @@ NeoBundle 'vim-scripts/restore_view.vim'
 
 NeoBundle 'szw/vim-maximizer'
 
+NeoBundle 'jplaut/vim-arduino-ino'
+
 call neobundle#end()
 
 " Required:
@@ -885,8 +887,7 @@ let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_cpp_remove_include_errors = 1
 
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
-
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 """ Padawan
 "let $PATH=$PATH . ':' . expand('~/.config/composer/vendor/bin')
 "let g:padawan#composer_command = "composer"
