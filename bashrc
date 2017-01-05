@@ -227,6 +227,7 @@ PROMPT_COMMAND='michi_prompt'
 alias busca='find . -type f -print0 | xargs -0 grep '
 alias vu="tmux rename-window $(basename $(pwd)) && vagrant up"
 alias vifm="TERM=screen-256color vifm"
+alias artisan="php artisan "
 # END michi-tweaks
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
