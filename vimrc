@@ -239,6 +239,8 @@ NeoBundle 'vim-scripts/restore_view.vim'
 
 NeoBundle 'szw/vim-maximizer'
 
+NeoBundle 'jplaut/vim-arduino-ino'
+
 call neobundle#end()
 
 " Required:
@@ -887,8 +889,7 @@ let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_cpp_remove_include_errors = 1
 
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
-
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 """ Padawan
 "let $PATH=$PATH . ':' . expand('~/.config/composer/vendor/bin')
 "let g:padawan#composer_command = "composer"
@@ -920,3 +921,15 @@ nmap <leader>t :TagbarToggle<cr>
 
 " arduino
 " vim-maximizer
+" tabstops
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,javascript,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+vmap <silent> # :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+vmap <silent> @ :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
