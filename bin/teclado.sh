@@ -6,7 +6,7 @@ setxkbmap -option
 
 # Caps se comporta como escape
 #setxkbmap es -option ctrl:nocaps -option caps:none -option shift:both_shiftlock -option lv3:ralt_switch
-setxkbmap es -option ctrl:nocaps -option caps:none -option lv3:ralt_switch
+setxkbmap us michi -option ctrl:nocaps -option caps:none -option lv3:ralt_switch
 
 # Control lanza escape cuando se pulsa y suelta solo
 ps -ef | grep "xcape" | grep  "Control_L Escape" | grep -v "grep" > /dev/null

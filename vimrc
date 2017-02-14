@@ -792,6 +792,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+
 " -------------------------------------------------------
 " Mis mappings
 " -------------------------------------------------------
@@ -898,6 +900,8 @@ let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
     \ }
 
+let g:ycm_extra_conf_globlist = ['~/New_Arduino_Project/*','!~/*']
+
 " phpcomplete-extended
 "autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 "let g:phpcomplete_index_composer_command="composer"
@@ -914,5 +918,5 @@ nnoremap <Leader>q :Bdelete<CR>
 " tagbar
 nmap <leader>t :TagbarToggle<cr>
 
+" arduino
 " vim-maximizer
-
