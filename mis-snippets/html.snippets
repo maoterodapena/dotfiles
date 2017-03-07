@@ -405,4 +405,31 @@ endsnippet
 snippet link:touch
 	<link rel="apple-touch-icon" href="${1:favicon.png}" />
 endsnippet
+
+snippet poly-boilerplate
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="${1:nombre-vista}">
+  <!-- Defines the element's style and local DOM -->
+  <template>
+    <style>
+      :host {
+        display: block;
+
+        padding: 16px;
+      }
+    </style>
+
+    <h1>$1</h1>
+  </template>
+  <!-- Creates the element's prototype and registers it -->
+  <script>
+    Polymer({
+      is: '$1'
+    });
+  </script>
+</dom-module>
+endsnippet
+
+
 # vim:ft=snippets:
