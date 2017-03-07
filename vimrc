@@ -191,6 +191,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "*****************************************************************************
 "" NeoBundle install packages
 "*****************************************************************************
+NeoBundle 'joonty/vdebug'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
@@ -241,7 +242,10 @@ NeoBundle 'vim-scripts/restore_view.vim'
 
 NeoBundle 'szw/vim-maximizer'
 
-NeoBundle 'jplaut/vim-arduino-ino'
+" NeoBundle 'jplaut/vim-arduino-ino'
+
+" NeoBundle 'idanarye/vim-vebugger'
+" NeoBundle 'vim-scripts/Conque-GDB'
 
 " NeoBundle 'joonty/vdebug'
 
@@ -812,6 +816,19 @@ let g:unite_enable_start_insert = 1
 nnoremap <space>/ :Unite grep:. -auto-preview<cr>
 " nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>b :Unite -start-insert buffer<cr>
+
+" Mappings vebugger
+let g:vebugger_leader='<Leader>d'
+
+" nmap <S-F11> <esc>:VBGstartPDB2 %<cr>
+" nmap <F5> <esc>:VBGstepIn<cr>
+" nmap <F6> <esc>:VBGstepOut<cr>
+" nmap <F7> <esc>:VBGstepOut<cr>
+" nmap <F8> <esc>:VBGcontinue<cr>
+" nmap <F9> <esc>:VBGtoggleBreakpointThisLine<cr>
+" nmap <F10> <esc>:VBGrawWrite<space> 
+" nmap <S-F10> <esc>:VBGrawWrite locals()<cr>
+" 
 
 
 
