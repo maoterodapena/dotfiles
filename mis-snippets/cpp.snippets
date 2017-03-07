@@ -80,28 +80,66 @@ snippet arduino "basic arduino program template" b
   ${1:`!p snip.rv = snip.basename or "programa"`}
  */
  
+ #include <Arduino.h>
+
 /******************************************************************************
 * SETUP
 ******************************************************************************/
 void setup() {                
+	Serial.begin(9600);
 
 }
 
 /******************************************************************************
-* loop
+* LOOP
 ******************************************************************************/
 void loop() {
 
 }
 endsnippet
 
+snippet arduino_lib_h "basic arduino header template"
+#ifndef ${1:`!p snip.rv = snip.basename.upper() or "programa"`}_H
+#define ${1:`!p snip.rv = snip.basename.upper() or "programa"`}_H
 
+class ${1:`!p snip.rv = snip.basename or "programa"`} {
+	
+	public:
+		${1:`!p snip.rv = snip.basename or "programa"`}();
+		~${1:`!p snip.rv = snip.basename or "programa"`}();
 
+		${1:void method();}
 
+	private:
 
+};
 
+#endif
 
+endsnippet
 
+snippet arduino_lib_class "basic arduino class template"
+#include "${1:`!p snip.rv = snip.basename or "programa"`}.h"
+
+/*
+ * Constructor
+ */
+${1:`!p snip.rv = snip.basename or "programa"`}::${1:`!p snip.rv = snip.basename or "programa"`}() {
+
+}
+
+/*
+ * Destructor
+ */
+
+${1:`!p snip.rv = snip.basename or "programa"`}::~${1:`!p snip.rv = snip.basename or "programa"`}() {
+}
+
+void ${1:`!p snip.rv = snip.basename or "programa"`}::method() {
+
+}
+
+endsnippet
 
 # vim:ft=snippets:
 
