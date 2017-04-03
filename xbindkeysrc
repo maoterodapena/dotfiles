@@ -40,49 +40,49 @@
 # Examples of commands:
 
 #"xbindkeys_show" 
-#  control+shift + q
+#  shift+control + q
 
 "teclado.sh"
-  control+shift + t
+  shift+control + t
 
 "move2tile.sh 7"
-  control+shift + u
+  shift+control + u
 
 "move2tile.sh 8"
-  control+shift + i
+  shift+control + i
 
 "move2tile.sh 9"
-  control+shift + o
+  shift+control + o
 
 "move2tile.sh 4"
-  control+shift + j
+  shift+control + j
 
 "move2tile.sh 5"
-  control+shift + k
+  shift+control + k
 
 "move2tile.sh 6"
-  control+shift + l
+  shift+control + l
 
 "move2tile.sh 1"
-  control+shift + m
+  shift+control + m
 
 "move2tile.sh 2"
-  control+shift + comma
+  shift+control + comma
 
 "move2tile.sh 3"
-  control+shift + period
+  shift+control + period
 
 "move2tile.sh 2desktop next"
-  control+shift + 0
+  shift+control + 0
 
 "move2tile.sh 2desktop prev"
-  control+shift + 9
+  shift+control + 9
 
 "move2tile.sh w2desktop next"
-  control+shift + s
+  shift+control + s
 
 "move2tile.sh w2desktop prev"
-  control+shift + a
+  shift+control + a
 
 
 
@@ -101,9 +101,9 @@
 #"xterm"
 #  alt + c:0x29 + m:4 + mod2
 #
-## Control+Shift+a  release event starts rxvt
+## shift+control+a  release event starts rxvt
 #"rxvt"
-#  release+control+shift + a
+#  release+shift+control + a
 #
 ## Control + mouse button 2 release event starts rxvt
 #"rxvt"
