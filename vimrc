@@ -247,6 +247,8 @@ NeoBundle 'szw/vim-maximizer'
 " NeoBundle 'idanarye/vim-vebugger'
 " NeoBundle 'vim-scripts/Conque-GDB'
 
+" NeoBundle 'joonty/vdebug'
+
 call neobundle#end()
 
 " Required:
@@ -908,7 +910,7 @@ let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_cpp_remove_include_errors = 1
 
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 """ Padawan
 "let $PATH=$PATH . ':' . expand('~/.config/composer/vendor/bin')
 "let g:padawan#composer_command = "composer"
@@ -920,7 +922,7 @@ let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
     \ }
 
-let g:ycm_extra_conf_globlist = ['~/New_Arduino_Project/*','!~/*']
+let g:ycm_extra_conf_globlist = ['~/arduino/projs/*','!~/*']
 
 " phpcomplete-extended
 "autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
