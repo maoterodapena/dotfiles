@@ -704,4 +704,8 @@ snippet pmdoc "pocoo style module doc string" b
 $0
 endsnippet
 
+snippet log "logea variables de tipo string" b
+log("`!p snip.rv = ":%s, ".join(t[1].split(",")) + ": %s"`" % (${1:variable}))
+endsnippet
+
 # vim:ft=snippets:

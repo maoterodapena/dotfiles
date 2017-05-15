@@ -246,8 +246,8 @@ NeoBundle 'szw/vim-maximizer'
 
 " NeoBundle 'idanarye/vim-vebugger'
 " NeoBundle 'vim-scripts/Conque-GDB'
-
 " NeoBundle 'joonty/vdebug'
+NeoBundle 'gotcha/vimpdb'
 
 call neobundle#end()
 
@@ -803,6 +803,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_java_javac_config_file_enabled = 1
 
 " -------------------------------------------------------
 " Mis mappings
