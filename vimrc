@@ -214,7 +214,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'mattn/emmet-vim'         " html expander
 
 NeoBundle 'scrooloose/syntastic'     " Checkea sintaxis
-NeoBundle 'klen/python-mode'
+"NeoBundle 'klen/python-mode'
 "NeoBundle 'alfredodeza/khuno.vim'
 NeoBundle 'SirVer/ultisnips'
 "NeoBundle 'honza/vim-snippets'
@@ -923,7 +923,7 @@ let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
     \ }
 
-let g:ycm_extra_conf_globlist = ['~/arduino/projs/*','!~/*']
+let g:ycm_extra_conf_globlist = ['~/arduino/projs/*','!~/*', '/tmp/arduino/*']
 
 " phpcomplete-extended
 "autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
@@ -955,3 +955,17 @@ autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
 vmap <silent> # :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 vmap <silent> @ :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+" Portapapeles sin necesidad de recompilar
+function! ClipboardYank()
+    call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+    let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
+onoremap <silent> y y:call ClipboardYank()<cr>
+onoremap <silent> d d:call ClipboardYank()<cr>
